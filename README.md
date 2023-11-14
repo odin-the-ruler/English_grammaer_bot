@@ -1,5 +1,3 @@
-Here is a sample README file for your English grammar bot, which can help you learn about the different parts of speech in a sentence.
-
 # English Grammar Bot
 This is a Telegram bot that teaches you the rules and examples of various parts of speech in English. You can use it to improve your grammar skills and have fun at the same time.
 
@@ -33,3 +31,6 @@ python init.py
 ```
 
 This will start the bot and connect it to the Telegram server. You can then use the bot by sending commands to it from your Telegram app.
+
+
+Your contribution and feedback are highly appreciated. 😊
