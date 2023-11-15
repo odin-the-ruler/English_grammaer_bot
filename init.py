@@ -49,8 +49,8 @@ async def help(update:Update,context: ContextTypes.DEFAULT_TYPE):
 async def ping(update, context):
     start = update.message.date
     end = update.message.date
-    response_time = (end - start).total_seconds()
-    response_time_str = f"{response_time:.2f} seconds"
+    response_time = (end - start)*1000
+    response_time_str = f"{response_time:.2f} Miliseconds"
     await update.message.reply_text(f"!Pong🏓\nResponse time: {response_time_str}")
 
 
