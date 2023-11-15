@@ -37,12 +37,14 @@ async def rules(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Get the response from the get_response function
     response = get_response(command.split()[1].lower())
     if len(response) > 4096:
-        for x in range(0, len(response), 4096):
-            await update.message.reply_text(response[x:x+4096])
+        chunks = [text[i:i+4096] for i in range(0, len(response), 4096)]
+        # Send each chunk as a separate message
+        for chunk in chunks:
+            bot.send_message(chat_id, chunk)
     else:
         await update.message.reply_text(response)
     # Send the response to the user
-    await update.message.reply_text(response)
+    # await update.message.reply_text(response)
 
 async def help(update:Update,context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("How to use the bot\n\n-   To use the bot, you need to type  /rules  followed by the name of the part of speech you want to learn about. For example,  /rules noun  will show you the rules for nouns.\n-   The bot will reply with a message that contains the definition, examples, and types of the part of speech you requested. It will also highlight the part of speech in the examples with bold text.\n-   You can also type  /rules all  to see a list of all the parts of speech that the bot can teach you.\n\nCommands\n_______________\n/rules partOfSpeach -> to get rules of a part of speach.\n/ping  -> to check my response time.")
