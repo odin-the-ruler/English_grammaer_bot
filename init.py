@@ -40,7 +40,7 @@ async def rules(update: Update, context: ContextTypes.DEFAULT_TYPE):
         chunks = [response[i:i+4096] for i in range(0, len(response), 4096)]
         # Send each chunk as a separate message
         for chunk in chunks:
-            await update.message(chunk)
+            await update.message.reply_text(chunk)
     else:
         await update.message.reply_text(response)
     # Send the response to the user
@@ -54,7 +54,7 @@ async def ping(update, context):
     end = update.message.date
     response_time = (end - start).total_seconds()
     response_time_str = f"{response_time:.2f} seconds"
-    await update.message.reply_text(f"!Pong🏓\nResponse time: {response_time_str})")
+    await update.message.reply_text(f"!Pong🏓\nResponse time: {response_time_str}")
 
 
 async def start(update:Update,context: ContextTypes.DEFAULT_TYPE):
