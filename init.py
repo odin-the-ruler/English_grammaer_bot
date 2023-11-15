@@ -36,6 +36,11 @@ async def rules(update: Update, context: ContextTypes.DEFAULT_TYPE):
     command = update.message.text
     # Get the response from the get_response function
     response = get_response(command.split()[1].lower())
+    if len(response) > 4096:
+        for x in range(0, len(response), 4096):
+            await update.message.reply_text(response[x:x+4096])
+    else:
+        await update.message.reply_text(response)
     # Send the response to the user
     await update.message.reply_text(response)
 
