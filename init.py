@@ -37,10 +37,10 @@ async def rules(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Get the response from the get_response function
     response = get_response(command.split()[1].lower())
     if len(response) > 4096:
-        chunks = [text[i:i+4096] for i in range(0, len(response), 4096)]
+        chunks = [response[i:i+4096] for i in range(0, len(response), 4096)]
         # Send each chunk as a separate message
         for chunk in chunks:
-            bot.send_message(chat_id, chunk)
+            await update.message(chunk)
     else:
         await update.message.reply_text(response)
     # Send the response to the user
