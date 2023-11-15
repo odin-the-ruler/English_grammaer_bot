@@ -4,7 +4,7 @@ import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-BOT_TOKEN=os.environ['BOT_TOKEN']
+BOT_TOKEN=''
 
 with open('data.json') as f:
     cmd_data = json.load(f)
