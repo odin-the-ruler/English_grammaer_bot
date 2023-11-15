@@ -8,7 +8,7 @@ import requests
 
 
 
-BOT_TOKEN=os.environ['BOT_TOKEN']
+BOT_TOKEN="YOUR_BOT_TOKEN"
 
 # with open('data.json') as f:
 #     cmd_data = json.load(f)
